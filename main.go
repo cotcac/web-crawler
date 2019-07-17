@@ -44,7 +44,7 @@ func main() {
 		row.URL, _ = sel.Find("a").Attr("href")
 		row.Thumbnail, _ = sel.Find("img").Attr("src")
 		row.Description = sel.Find("p.description").Text()
-		row.Body = getbody.Getbody()
+		row.Body = getbody.Getbody(row.URL)
 		rows = append(rows, *row)
 
 	})
