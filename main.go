@@ -1,6 +1,7 @@
 package main
 
 import (
+	"a-test/controllers/getbody"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -43,7 +44,9 @@ func main() {
 		row.URL, _ = sel.Find("a").Attr("href")
 		row.Thumbnail, _ = sel.Find("img").Attr("src")
 		row.Description = sel.Find("p.description").Text()
+		row.Body = getbody.Getbody()
 		rows = append(rows, *row)
+
 	})
 	// convert to json string.
 	bts, err := json.MarshalIndent(rows, "", "  ")
